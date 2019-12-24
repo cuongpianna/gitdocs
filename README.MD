@@ -77,13 +77,13 @@ Sau khi code hoàn tất và tất cả unit tests đã chạy thành công, gi�
 
 Giả sử Git history sẽ như thế này:
 
-{@codepen: https://codepen.io/ehkoo/pen/mLVXyW}
+![alt](http://document.azthemes.net/images/rental/git%601.PNG)
 
 Nhánh login màu vàng được rẽ ra từ nhánh dev màu xanh, và trong nhánh dev không có code gì mới. Đây là trường hợp lý tưởng, đảm bảo khi merge vào dev chúng ta sẽ không bị xung đột code
 
 **Trường hợp 2: Có commits mới trong nhánh dev**
 
-{@codepen: https://codepen.io/ehkoo/pen/jxWZqe?__cf_chl_jschl_tk__=1f8f369ee0d86dda1f5fa1c42b09dc665d6f0710-1577153013-0-AbLWiwqOxuB-LifS56rOe3asCDCqk_Qb6d0quVbg7X6Y9wEyAnBzDkIf69L7NxXZ1GO8GULvidnAUi4hiTRDVkqplfEt2HSFJF7lxxV3u9GaTvczRCNv-gnWKFCQ6xMILm5IjPLC8IF0rNhOsdx55s0q7SkTd2NhJ7ZruwOxj3rHt0GjY6pj02PIeJqOk7XoAQiVIMlPYDTyaHjnYqog-faLl_yamEqWDHQ163-hytw7AuLXqwM8ElJAE0BvzvutqA27x9XOl13I7vfMQFa_h3W9bQ0NLDVuuG7wFH378JrHrXsdMETd_k6taYrUMva0PYxOlo7lmD4zQ2vnljz8Htg}
+![alt](http://document.azthemes.net/images/rental/git2.PNG)
 
 Trong trường hợp này, branch dev (màu xanh) đang có 2 commits phía trước branch login (màu vàng). Nếu trong 2 commits đó có chứa thay đổi liên quan đến dev, chẳng hạn như package.json, thì khả năng cao là sẽ xảy ra xung đột khi merge trực tiếp login vào. Mà dù có may mắn không xảy ra xung đột code, thì merge vào cũng sẽ làm history xấu đi.
 
@@ -108,5 +108,9 @@ Trong trường hợp hiện tại, chúng ta sẽ chạy những lệnh sau:
 Nếu xảy ra xung đột code, có thể phát hiện và giải quyết chúng sớm. Nguyên tắc chung là không sửa code của người khác, và chỉ kết hợp thêm những gì mình làm. Việc thực hiện rebase tại nhánh chức năng do mình phụ trách giúp giảm thiểu khả năng mất code, vì mình là người hiểu rõ nhất code của mình.
 
 Sau khi giải quyết hết các xung đột trong code, ta chạy git rebase --continue để tiếp tục tiến trình rebase. Bạn cũng có thể chạy git rebase --abort để hủy bỏ rebase và đưa nhánh login về lại trạng thái ban đầu
+
+Sau khi rebase xong, history sẽ thành:
+
+![alt](http://document.azthemes.net/images/rental/git3.PNG)
 
 Note: có nhiều cách để giải quyết conflict, đây là cách cơ bản nhất
